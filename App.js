@@ -5,9 +5,26 @@ import ReactDOM from 'react-dom';
 
 //The class version of the app can have state. The parenthesis on "return" don't matter
 class App extends React.Component {
+	constructor(){
+		super();
+		this.state = { txt: 'this is the state text '}
+	}
+	// to manage the state, a custom method of update. you don't need to pass all the variables, just the one you need
+	update(e){
+		this.setState({txt: e.target.value})
+	}
+
 	render() {
-		let txt = this.props.txt
-		return <h1>{txt}</h1>
+		// for the props version
+		//let txt = this.props.txt
+		//return <h1>{txt}</h1>
+		return(
+		<div>
+		<input type="text"
+		onChange={this.update.bind(this)} />
+		<h1>{this.state.txt}</h1>
+		</div>
+		);
 	}
 }
 
