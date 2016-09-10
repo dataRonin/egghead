@@ -8,6 +8,7 @@ class App extends React.Component {
 	constructor(){
 		super();
 		this.state = { txt: 'this is the state text '}
+		this.update = this.update.bind(this)
 	}
 	// to manage the state, a custom method of update. you don't need to pass all the variables, just the one you need
 	update(e){
@@ -15,17 +16,29 @@ class App extends React.Component {
 	}
 
 	render() {
-		// for the props version
-		//let txt = this.props.txt
-		//return <h1>{txt}</h1>
+		// the Widget component from below is now rendered up in here.
 		return(
 		<div>
-		<input type="text"
-		onChange={this.update.bind(this)} />
-		<h1>{this.state.txt}</h1>
+			<Widget txt={this.state.txt} update={this.update}/>
+			<Widget txt={this.state.txt} update={this.update}/>
+			<Widget txt={this.state.txt} update={this.update}/>
+			<Widget txt={this.state.txt} update={this.update}/>
+			<Widget txt={this.state.txt} update={this.update}/>
+			<Widget txt={this.state.txt} update={this.update}/>
 		</div>
 		);
 	}
+}
+
+const Widget = (props) => {
+	// we can make "permenant" an "owned" component by doing it like this. Owner-ownee relationship
+	return(
+		<div>
+		<input type="text"
+		onChange={props.update} />
+		<h1>{props.txt}</h1>
+		</div>
+	);
 }
 
 // object to describe the types we want -- if we add isRequired, then the required property must be specifed
