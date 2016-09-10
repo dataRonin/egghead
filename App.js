@@ -17,11 +17,16 @@ App.propTypes = {
 	cat: React.PropTypes.number.isRequired
 }
 
+// we can use default props so that we don't have to put the variable in the App render belwo
+App.defaultProps = {
+	txt: 'this is the default text'
+}
+
 // notice how the let statement in this.props.txt then lets us use txt as the variable. then in the render, we set that text by calling that txt variable
 //we will do rendering directly from app.js, so we can use "props"
 
 ReactDOM.render(
-	<App cat = {5} txt="This is the props value" />, 
+	<App cat = {5} />, 
 	document.getElementById('app')
 );
 
