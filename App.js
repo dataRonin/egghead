@@ -1,10 +1,12 @@
 import React from 'react';
+import ReactDOM from 'reat-dom';
 
 // return doesn't let you return more than 1 tag. It's because this is pretty much like the createElement syntax. You can only return 1 'react.createElement' in JSX. The 1st arguement is the tag, the second is props, and the last is the inner html.
 
 //The class version of the app can have state. The parenthesis on "return" don't matter
 class App extends React.Component {
 	render() {
+		let txt = this.props.txt
 		return (<div><h1>Awesome</h1><h1>bob</h1></div>)
 	}
 }
